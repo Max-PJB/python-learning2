@@ -20,7 +20,7 @@ from enum import Enum
 Color = Enum('Color', {'red': 1, 'blue': 2})
 
 print(list(Color))
-print(Color.red, Color(1), Color(2), Color.red.value == 1, Color.red.name == 'red')
+print(Color.red, Color(1), Color(2), Color.red.val == 1, Color.red.name == 'red')
 
 
 class Planet(Enum):
@@ -61,7 +61,7 @@ print(ErrorCode2.ARG_ERROR.code)
 print(ErrorCode2.ARG_ERROR.message)
 
 ErrorCode = Enum('ErrorCode', {'ARG_ERROR': 101, 'NOT_FOUND': 202})
-print(ErrorCode.ARG_ERROR.value)
+print(ErrorCode.ARG_ERROR.val)
 
 
 class ErrorCode1(Enum):
@@ -71,5 +71,5 @@ class ErrorCode1(Enum):
 
 # 可以通过 cls['name'] ,cls(value) 来获取枚举， 通过 cls'.'name == ['name.]
 print(ErrorCode1.ARG_ERROR, ErrorCode1.ARG_ERROR.name, ErrorCode1.ARG_ERROR.value)
-print(ErrorCode1['ARG_ERROR'], ErrorCode1['ARG_ERROR'].name, ErrorCode1['ARG_ERROR'].value)
-print(ErrorCode1(101), ErrorCode1(101).name, ErrorCode1(101).value)
+print(ErrorCode1['ARG_ERROR'], ErrorCode1['ARG_ERROR'].name, ErrorCode1['ARG_ERROR'].val)
+print(ErrorCode1(101), ErrorCode1(101).name, ErrorCode1(101).val)

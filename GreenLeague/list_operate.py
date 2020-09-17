@@ -67,12 +67,12 @@ def list_operate(data, operations):
     l_dict = {}
     r_dict = {}
     for opera in operations:
-        if opera.op == "C":
+        if opera.cao_zuo == "C":
             data[opera.x] = opera.y
             l_dict = {}
             r_dict = {}
             # print("do C", l_dict, r_dict)
-        elif opera.op == "L":
+        elif opera.cao_zuo == "L":
             # print(opera.op, opera.x, opera.y, left_sum(data[opera.x:opera.y + 1:]))
             if opera.x in l_dict:
                 if opera.y in l_dict[opera.x]:
@@ -172,16 +172,16 @@ def list_operate2(data, operations):
     # print(data_dict)
     res = 0
     for opera in operations:
-        if opera.op == "C":
+        if opera.cao_zuo == "C":
             res += data_dict[opera.x][0] * data_dict[opera.x][1]
             data_dict[opera.x] = (opera.y, 0)
             # print(data_dict)
             # print(res)
-        if opera.op == "L":
+        if opera.cao_zuo == "L":
             for cnt, x in enumerate(range(opera.x, opera.y + 1)):
                 data_dict[x] = (data_dict[x][0], data_dict[x][1] + cnt + 1)
                 # print("L", data_dict)
-        if opera.op == "R":
+        if opera.cao_zuo == "R":
             for cnt, x in enumerate(range(opera.y, opera.x - 1, -1)):
                 data_dict[x] = (data_dict[x][0], data_dict[x][1] + cnt + 1)
                 # print("R cnt x", cnt, x, data_dict)

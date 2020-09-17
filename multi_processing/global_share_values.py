@@ -22,7 +22,7 @@ __author__ = 'Max_Pengjb'
 
 
 def func1(num):
-    num.value = 10.78  # 子进程改变数值的值，主进程跟着改变
+    num.val = 10.78  # 子进程改变数值的值，主进程跟着改变
 
 
 if __name__ == "__main__":
