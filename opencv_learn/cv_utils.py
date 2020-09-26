@@ -153,8 +153,8 @@ def background_target_generator(img_path, save_folder, type_tangels):
     :return: None
     """
     cur_img = cv2.imread(img_path)
-    # h, w = cur_img.shape[0:2]
-    # print('h, w',cur_img.shape)
+    # hnext, w = cur_img.shape[0:2]
+    # print('hnext, w',cur_img.shape)
     # 扣背景的掩码
     # mask = np.ones(cur_img.shape)
     for rec in type_tangels:
@@ -172,12 +172,12 @@ def background_target_generator(img_path, save_folder, type_tangels):
         #     if ymin - k >= 0:
         #         cur_img[y1:y1 + k, xmin:xmax] = cur_img[ymin - k:ymin, xmin:xmax]
         #         y1 = y1 + k
-        #     if ymax + k < h:
+        #     if ymax + k < hnext:
         #         cur_img[y2 - k:y2, xmin:xmax] = cur_img[ymax:ymax + k, xmin:xmax]
         #         y2 = y2 - k
         #     step <<= 2
         # w_, h_ = xmax - xmin, ymax - ymin
-        # w1, w2, h1, h2 = max(0, xmin - w_ // 2), min(w - 1, xmax + w_ // 2), max(0, ymin - h_ // 2), min(h - 1, ymax + h_ // 2)
+        # w1, w2, h1, h2 = max(0, xmin - w_ // 2), min(w - 1, xmax + w_ // 2), max(0, ymin - h_ // 2), min(hnext - 1, ymax + h_ // 2)
         # cur_img[h1:h2, w1:w2] = cv2.medianBlur(cur_img[h1:h2, w1:w2], 3)
         cur_img[ymin:ymax, xmin:xmax] = 0  # 把图扣了后，原图就置为 黑色0了
         cv2.waitKey()

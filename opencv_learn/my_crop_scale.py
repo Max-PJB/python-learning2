@@ -44,7 +44,7 @@ def crop_scale(image, boxes, labels, scale=2.0, nums=1):
         image2 = cv2.resize(image, (w_t, h_t))
         boxes_tmp = np.array(boxes) * tmp_scale
         boxes_tmp = boxes_tmp.astype(np.int32)
-        # 裁剪 crop 裁剪的 h ，w 范围应该是 [0 - ht-h] [0 - wt-w]
+        # 裁剪 crop 裁剪的 hnext ，w 范围应该是 [0 - ht-hnext] [0 - wt-w]
         crop_rand_h, crop_rand_w = np.random.rand(2)
         crop_h, crop_w = int(crop_rand_h * (h_t - h)), int(crop_rand_w * (w_t - w))
         res_image = image2[crop_h:crop_h + h, crop_w:crop_w + w]
