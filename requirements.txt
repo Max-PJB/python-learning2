@@ -1,7 +1,6 @@
 xmltodict
 numpy
 flask
-socketio
 Flask-SocketIO
 pyJWT
 flask_login
@@ -9,3 +8,6 @@ flask-cors
 flask_security
 bcrypt
 flask_mongoengine
+requests
+PyQt5
+pillow
