@@ -26,7 +26,8 @@ class Net(nn.Module):  # 需要继承这个类
     def __init__(self):
         super(Net, self).__init__()  # 建立了两个卷积层，self.conv1, self.conv2，注意，这些层都是不包含激活函数的
         self.conv1 = nn.Conv2d(1, 6, 5)  # 1 input image channel, 6 output channels, 5x5 square convolution kernel
-        self.conv2 = nn.Conv2d(6, 16, 5)  # 三个全连接层
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        # 三个全连接层
         self.fc1 = nn.Linear(16 * 5 * 5, 120)  # an affine operation: y = Wx + b
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
