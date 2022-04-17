@@ -3,11 +3,13 @@ numpy
 flask
 Flask-SocketIO
 pyJWT
-flask_login
+# flask_login
 flask-cors
-flask_security
+# flask_security
 bcrypt
-flask_mongoengine
+# flask_mongoengine
 requests
-PyQt5
+# PyQt5
 pillow
+sanic
+pandas

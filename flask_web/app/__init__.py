@@ -34,7 +34,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(config)
     # CORS(app)
-    CORS(app, resources	={r"/*": {"expose_headers": ["Authorization"]}})
+    CORS(app, resources={r"/*": {"expose_headers": ["Authorization"]}})
 
     # Alternatively, you can specify CORS options on a resource and origin level of granularity by passing a dictionary as the resources option, mapping paths to a set of options. See the full list of options in the documentation.
     # cors = CORS(app, resources={r"/api/*": {"origins": "*"}})

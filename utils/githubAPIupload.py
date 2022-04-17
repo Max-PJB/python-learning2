@@ -9,7 +9,7 @@
     @   GitHub  :       https://github.com/JackyPJB
     @   Contact :       pengjianbiao@hotmail.com
 -------------------------------------------------
-    Description :       
+    Description :
 -------------------------------------------------
 """
 import requests
@@ -18,7 +18,7 @@ import json
 
 from PyQt5 import QtCore
 from PyQt5.QtWidgets import QApplication
-from PIL import Image
+# from PIL import Image
 import datetime
 
 
@@ -36,8 +36,8 @@ def upload_file(image_base64):
     # dt_ms = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S-%f')  # 含微秒的日期时间
     dt_ms = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')  # 含微秒的日期时间
     image_name = 'image-' + dt_ms + '.png'  # 文件名
-    token = "e3ff27af0da361d25dc1aa8e315b20a87582c895"
-    url = "https://api.github.com/repos/JackyPJB/imgs/contents/" + image_name  # 用户名、库名、路径
+    token = "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"  # 当前的 token 已经失效，使用的话需要重新申请
+    url = "https://api.github.com/repos/max-pjb/imgs/contents/" + image_name  # 用户名、库名、路径
     headers = {"Authorization": "token " + token}
     data = {
         "message": "uploaded by custom script",
@@ -53,17 +53,24 @@ def upload_file(image_base64):
     re_data = json.loads(req.text)
     # print(re_data)
     # print(re_data['content']['sha'])
-    print("https://cdn.jsdelivr.net/gh/JackyPJB/imgs/" + image_name)
+    print("https://cdn.jsdelivr.net/gh/max-pjb/imgs/" + image_name)
 
 
 # 在国内默认的down_url可能会无法访问，因此使用CDN访问
 
 
 if __name__ == '__main__':
-    # upload_file('test.png')
+    # import sys
+    #
+    # png_path = sys.argv[1]
+    # with open(png_path, 'rb') as f:
+    #     img_b64 = base64.b64encode(f.read()).decode('utf-8')
+    # upload_file(img_b64)
     app = QApplication([])
     cb = app.clipboard()
+    print(cb.mimeData().hasText())
     if cb.mimeData().hasImage():
+        print('haha')
         qt_img = cb.image()
         # print(type(qt_img))
         # Qimage to base64
